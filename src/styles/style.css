@@ -1,0 +1,391 @@
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: 
+    local('Montserrat Regular'), 
+    local('Montserrat-Regular'), 
+    url('../assets/fonts/Montserrat-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  src: 
+    local('Montserrat SemiBold'), 
+    local('Montserrat-SemiBold'), 
+    url('../assets/fonts/Montserrat-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: 
+    local('Montserrat Bold'), 
+    local('Montserrat-Bold'), 
+    url('../assets/fonts/Montserrat-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 200;
+  src: 
+    local('Montserrat ExtraLight'), 
+    local('Montserrat-ExtraLight'), 
+    url('../assets/fonts/Montserrat-ExtraLight.woff2') format('woff2');
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	font-style: normal;
+  font-weight: 400;
+
+	font-size: 20px;
+	color: #000000;
+}
+
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.title {
+  color: #000;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.big-title {
+  color: #FFF;
+  font-size: 72px;
+  font-weight: 600;
+}
+
+.button {
+  background-color: #FFD600;
+  border-radius: 30px;
+  padding: 19px 75px;
+  font-weight: 600;
+}
+
+/* Header - start */
+
+.header {
+  border-bottom: 3px solid #E9E9E9;
+}
+
+.header__nav {
+  min-height: 63px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__nav-left,
+.header__nav-right {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 40px;
+}
+
+.header__nav_item {
+  display: flex;
+}
+
+.header__nav_item a {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 9px;
+}
+
+.header__nav_circle {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+
+  background-color: #FFD600;
+  background-image: url(../assets/images/svg/avatar-icon.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Header - end */  
+
+/* Main - start */
+
+.main {
+  background: url(../assets/images/main-bg.jpg) no-repeat center;
+  background-size: cover;
+  height: 80vh;
+  padding-bottom: 20px;
+  
+  display: flex;             
+  align-items: center; 
+}
+
+.main__wrap {
+  text-align: center;
+}
+
+.main__title {
+  margin-bottom: 21px;
+}
+
+.main__label {
+  color: #FFF;
+  margin-bottom: 35px;
+}
+
+.main__btn button {
+  font-size: 24px;
+}
+
+/* Main - end */
+
+/* Footer - start */
+
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  border-top: 3px solid #E9E9E9;
+}
+
+.footer__item {
+  display: block;
+}
+
+.footer__item.phone {
+  margin-bottom: 15px;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.footer__item.place {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Footer - end */
+
+/* Tables - start */
+
+.tables__wrap {
+  padding-top: 20px;
+  padding-bottom: 55px;
+}
+
+.tables__title {
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+.tables__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 40px;
+}
+
+.tables__item {
+  position: relative;
+
+  padding: 30px;
+  border-radius: 25px;
+  border: 1px solid #000;
+  background: #FFF;
+
+  width: 395px;
+  height: 655px;
+  
+  text-align: center;
+}
+
+.tables__item_img {
+  margin-bottom: 13px;
+  border-radius: 10px;
+  width: 335px;
+  height: 166px;
+}
+
+.tables__item_info {
+  text-align: left;
+}
+
+.tables__item_label {
+  font-size: 15px;
+  font-weight: 200;
+}
+
+.tables__item_text {
+  margin-bottom: 10px;
+}
+
+.tables__item_text.desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 6; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tables__item_text.input {
+  border-radius: 27px;
+  border: 1px solid #000;
+  background: #FFF;
+
+  padding: 3px 10px;
+}
+
+.tables__item_btn {
+  position: absolute;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+
+  padding: 19px 30px;
+}
+
+/* Tables - end */
+
+/* Order - start */
+
+.order {
+  background: url(../assets/images/order-bg.jpg) no-repeat center;
+  background-size: cover;
+  height: 95vh;
+
+  display: flex;             
+  align-items: center; 
+  padding-bottom: 20px;
+}
+
+.order__wrap {
+  text-align: center;
+}
+
+.order__title {
+  margin-bottom: 47px;
+}
+
+.order__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order__desc {
+  max-width: 465px;
+}
+
+.order__desc-text {
+  background-color: #FFF;
+  border-radius: 30px;
+  padding: 25px;
+
+  border: 15px solid #FFD600;
+  margin-bottom: 40px;
+}
+
+.order__cost_title {
+  color: #FFF;
+}
+
+.order__cost_number {
+  color: #FFD600;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.order__info {
+  text-align: left;
+}
+
+.order__info_label {
+  color: #FFF;
+  margin-bottom: 8px;
+}
+
+.order__info_text {
+  background-color: #FFF;
+  border-radius: 30px;
+
+  padding: 4px 18px 4px 18px;
+  margin-bottom: 15px;
+}
+
+.order__info_btn-wrap {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.order__info_sum {
+  font-size: 32px;
+  color: #FFD600;
+  font-weight: 700;
+}
+
+/* Order - end */
+
+/* Entry - start */
+
+.entry {
+  padding-top: 33px;
+  padding-bottom: 33px;
+
+  text-align: center;
+}
+
+.entry__wrap {
+  border: 15px solid #FFD600;
+  border-radius: 30px;
+
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.entry__title {
+  padding-top: 8px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid #E9E9E9;
+}
+
+.entry__form {
+  padding: 35px 50px;
+}
+
+.entry__form_item {
+  display: flex;
+  gap: 21px;
+  flex-wrap: nowrap;
+  margin-bottom: 23px;
+}
+
+.entry__label {
+  text-align: left;
+  min-width: 195px;
+}
+
+.entry__input {
+  width: 100%;
+  border-radius: 30px;
+  border: 1px solid #000;
+  padding: 4px 15px;
+}
+
+.entry__btn {
+  margin-top: 30px;
+}
+
+/* Entry - end */

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/src/styles/reset.css">
+  <link rel="stylesheet" href="/src/styles/style.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <nav class="header__nav wrapper">
+      <ul class="header__nav-left">
+        <li class="header__nav_item">
+          <a href="#!">.главная</a>
+        </li>
+        <li class="header__nav_item">
+          <a href="#!">.список столов</a>
+        </li>
+      </ul>
+
+      <ul class="header__nav-right">
+        <li class="header__nav_item">
+          <a href="#!">.выйти</a>
+        </li>
+        <li class="header__nav_item ">
+          <a href="#!">
+            .профиль<div class="header__nav_circle"></div>
+          </a>
+        </li>
+      </ul>
+
+      <!-- <ul class="header__nav-right">
+        <li class="header__nav_item">
+          <a href="#!">.войти</a>
+        </li>
+        <li class="header__nav_item">
+          <a href="#!">
+            .зарегистрироваться</a>
+        </li>
+      </ul> -->
+
+    </nav>
+  </header>
+
+  <main class="order">
+    <div class="order__wrap wrapper">
+      <h1 class="order__title big-title">Большой шведский стол</h1>
+      <div class="order__container">
+        <div class="order__desc">
+          <p class="order__desc-text">
+            Шведский стол, буфет — способ подачи пищи, при котором множество блюд выставляются рядом, и еда разбирается
+            по тарелкам самими гостями.
+          </p>
+          <div class="order__cost_wrap">
+            <p class="order__cost_title">Цена</p>
+            <p class="order__cost_number">1000 руб/час</p>
+          </div>
+        </div>
+
+        <form action="post" class="order__info">
+          <p class="order__info_label">Выбранная дата</p>
+          <input type="date" class="order__info_text" disabled>
+
+          <p class="order__info_label">Список свободных мест</p>
+          <select name="" id="" class="order__info_text select">
+            <option value="s" class="order__info_select-item">Свободно: 52 c 17:00 до 18:00</option>
+          </select>
+
+          <p class="order__info_label">Период бронирования</p>
+          <div class="order__info_text-wrap">
+            <input type="time" step="3600" class="order__info_text">
+            <input type="time" step="3600" class="order__info_text">
+          </div>
+
+          <p class="order__info_label">Кол-во человек</p>
+          <input type="number" min="1" max="100" value="0" class="order__info_text">
+
+          <div class="order__info_btn-wrap">
+            <button class="order__info_btn button">Оплатить</button>
+            <p class="order__info_sum">3000 руб</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__wrap wrapper">
+      <a href="tel:+78002000024" class="footer__item phone">8 (800) 200-00-24</a>
+      <p class="footer__item place">
+        620014, Свердловская обл., г. Екатеринбург, ул. Сакко и Ванцетти, д. 61.
+      </p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

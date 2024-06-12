@@ -38,6 +38,15 @@
     url('../assets/fonts/Montserrat-ExtraLight.woff2') format('woff2');
 }
 
+.loading {
+  height: 78vh;
+  font-size: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 input[type="time"]::-webkit-calendar-picker-indicator {
   display: none;
 }
@@ -312,6 +321,11 @@ body {
   white-space: nowrap;
 
   padding: 19px 30px;
+}
+
+.tables__item_btn.disabled {
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 /* Tables - end */

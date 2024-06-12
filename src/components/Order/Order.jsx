@@ -1,25 +1,26 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 export default function Order() {
+  const { state } = useLocation();
+  const { table, date } = state || {};
+
   return (
     <main className="order">
       <div className="order__wrap wrapper">
-        <h1 className="order__title big-title">Большой шведский стол</h1>
+        <h1 className="order__title big-title">{table.title}</h1>
         <div className="order__container">
           <div className="order__desc">
-            <p className="order__desc-text">
-              Шведский стол, буфет — способ подачи пищи, при котором множество блюд выставляются рядом, и еда разбирается
-              по тарелкам самими гостями.
-            </p>
+            <p className="order__desc-text">{table.description}</p>
             <div className="order__cost_wrap">
               <p className="order__cost_title">Цена</p>
-              <p className="order__cost_number">1000 руб/час</p>
+              <p className="order__cost_number">{table.price} руб/час</p>
             </div>
           </div>
 
           <form action="post" className="order__info">
             <p className="order__info_label">Выбранная дата</p>
-            <input type="date" className="order__info_text" disabled/>
+            <input type="date" className="order__info_text" value={date} disabled/>
 
             <p className="order__info_label">Список свободных мест</p>
             <select name="" id="" className="order__info_text select">
@@ -33,7 +34,7 @@ export default function Order() {
             </div>
 
             <p className="order__info_label">Кол-во человек</p>
-            <input type="number" min="1" max="100" value="0" className="order__info_text"/>
+            <input type="number" min="1" max="100" defaultValue="0" className="order__info_text"/>
 
             <div className="order__info_btn-wrap">
               <button className="order__info_btn button">Оплатить</button>

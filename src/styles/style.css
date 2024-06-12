@@ -42,6 +42,38 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   display: none;
 }
 
+input {
+  border: 1px solid transparent;
+}
+
+input:focus {
+  outline: 2px solid #DAB700;
+  border: 1px solid #DAB700;;
+}
+
+.input {
+  border-radius: 30px;
+  border: 1px solid #000;
+  padding: 4px 15px;
+}
+
+select {
+  border: 1px solid transparent;
+}
+
+select:focus {
+  outline: 2px solid #DAB700;
+  border: 1px solid #DAB700;
+}
+
+.link {
+  transition: 0.2s;
+}
+
+.link:hover {
+  text-shadow: 0px 4px 7px rgba(0, 0, 0, 0.35);
+}
+
 body {
 	font-family: 'Montserrat', sans-serif;
 	font-style: normal;
@@ -49,6 +81,21 @@ body {
 
 	font-size: 20px;
 	color: #000000;
+}
+
+.popup {
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .wrapper {
@@ -74,6 +121,21 @@ body {
   border-radius: 30px;
   padding: 19px 75px;
   font-weight: 600;
+
+  transition: 0.2s;
+}
+
+.button:hover {
+  background-color: #FFE665;
+}
+
+.button:active {
+  background-color: #FFD600;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 200;
 }
 
 /* Header - start */
@@ -208,6 +270,11 @@ body {
   height: 655px;
   
   text-align: center;
+  transition: .2s;
+}
+
+.tables__item:hover {
+  filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.20));
 }
 
 .tables__item_img {
@@ -221,13 +288,12 @@ body {
   text-align: left;
 }
 
-.tables__item_label {
-  font-size: 15px;
-  font-weight: 200;
-}
-
 .tables__item_text {
   margin-bottom: 10px;
+}
+
+.tables__item_text.input {
+  width: 100%;
 }
 
 .tables__item_text.desc {
@@ -236,14 +302,6 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.tables__item_text.input {
-  border-radius: 27px;
-  border: 1px solid #000;
-  background: #FFF;
-
-  padding: 3px 10px;
 }
 
 .tables__item_btn {
@@ -359,6 +417,7 @@ body {
   padding-top: 8px;
   padding-bottom: 12px;
   border-bottom: 3px solid #E9E9E9;
+  text-align: center;
 }
 
 .entry__form {
@@ -379,9 +438,6 @@ body {
 
 .entry__input {
   width: 100%;
-  border-radius: 30px;
-  border: 1px solid #000;
-  padding: 4px 15px;
 }
 
 .entry__btn {
@@ -389,3 +445,276 @@ body {
 }
 
 /* Entry - end */
+
+/* Profile - start */
+
+.profile__wrap {
+  max-width: 830px;
+  margin: 0 auto;
+  padding-top: 30px;
+  padding-bottom: 70px;
+}
+
+.profile__info {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  flex-wrap: wrap;
+
+  margin-bottom: 55px;
+}
+
+.profile__avatar_wrap {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 15px solid #FFD600;
+  background-color: #FFD600;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile__avatar {
+  width: 108px;
+  height: 108px;
+}
+
+.profile__data {
+  display: flex;
+  column-gap: 70px;
+  row-gap: 20px;
+  flex-wrap: wrap;
+}
+
+.profile__data-left,
+.profile__data-right {
+  width: 220px;
+}
+
+.profile__data_text {
+  margin-bottom: 20px;
+}
+
+.profile-edit__input {
+  width: 100%;
+}
+
+.profile__edit-btn {
+  font-size: 14px;
+  padding-left: 23px;
+  background: url(../assets/images/svg/edit-icon.svg) no-repeat left center;
+}
+
+.profile__admin-btn {
+  font-size: 14px;
+  padding-left: 23px;
+  background: url(../assets/images/svg/admin-icon.svg) no-repeat left center;
+}
+
+.profile__reservations {
+  min-height: 40vh;
+}
+
+.profile__reservations_title {
+  font-weight: 200;
+  margin-bottom: 30px;
+}
+
+.reservations-item {
+  display: flex;
+
+  margin-left: 15px;
+  padding: 5px 0 5px 24px;
+  border-left: 5px solid #FFD600;
+
+  margin-bottom: 34px;
+
+  transition: .2s;
+}
+
+.reservations-item:hover {
+  background-color: #F3F3F3; 
+}
+
+.reservations-item__text {
+  margin-bottom: 7px;
+  white-space: nowrap;
+}
+
+.reservations-item__text.end {
+  margin-bottom: 0;
+}
+
+.reservations-item__column {
+  margin-right: 50px;
+}
+
+.reservations-item__column.table {
+  width: 270px;
+}
+
+.reservations-item__column.date {
+  width: 165px;
+}
+
+.reservations-item__column.places {
+  width: 170px;
+  margin-right: 0;
+}
+
+.reservations-item__delete-btn_wrap {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+}
+
+.reservations-item__delete-icon path{
+  transition: .2s;
+}
+
+.reservations-item__delete-icon:hover path{
+  fill: #FF7474;
+}
+
+.reservations-item__delete-icon:active path{
+  fill: #FF1A1A;
+}
+
+
+.profile-edit__wrap {
+  position: relative;
+  background: #FFD600;
+  width: 720px;
+  border-radius: 30px;
+  padding: 45px;
+}
+
+.close {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  cursor: pointer;
+}
+
+.profile-edit__content {
+  background: #FFF;
+  height: 100%;
+  border-radius: 30px;
+}
+
+.profile-edit__subtitle {
+  font-weight: 200;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.profile-edit__form_wrap {
+  padding: 25px 48px 0 48px;
+}
+
+.profile-edit__form {
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.profile-edit__form_item {
+  display: flex;
+  gap: 54px;
+  flex-wrap: nowrap;
+  margin-bottom: 25px;
+}
+
+.profile-edit__label {
+  text-align: left;
+  min-width: 160px;
+}
+
+/* Profile - end */
+
+
+/* Admin - start */
+
+.admin__wrap {
+  padding-top: 20px;
+}
+
+.admin__panel {
+  text-align: center;
+}
+
+.admin__title {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.admin__mode_wrap {
+  display: flex;
+  justify-content: center;
+  gap: 47px;
+}
+
+.admin__btn {
+  padding: 15px 50px;
+  font-size: 18px;
+
+  margin-bottom: 37px;
+}
+
+.admin__dates_wrap {
+  display: flex;
+  justify-content: center;
+  gap: 95px;
+}
+
+.admin__date_text {
+  margin-bottom: 7px;
+}
+
+.admin__date_input {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.admin__reservations {
+  margin: 0 auto;
+  min-height: 25vh;
+}
+
+.reservations-item__column.name {
+  margin-left: 50px;
+  width: 180px;
+}
+
+.reservations-item__column.contacts {
+  width: 270px;
+}
+
+.reservations-item__buttons_wrap {
+  min-width: 24px;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.reservations-item__check-icon path{
+  transition: .2s;
+}
+
+.reservations-item__check-icon:hover path{
+  fill: #90C8A0;
+}
+
+.reservations-item__check-icon:active path{
+  fill: #09A334;
+}
+
+.reservations-item__label {
+  white-space: nowrap;
+}
+
+/* Admin - end */

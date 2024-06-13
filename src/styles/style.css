@@ -77,6 +77,7 @@ select:focus {
 
 .link {
   transition: 0.2s;
+  cursor: pointer;
 }
 
 .link:hover {

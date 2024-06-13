@@ -45,7 +45,12 @@ export default function Reg() {
             },
             body: JSON.stringify(formData)
             })
-            .then(response => response.json())
+            .then(response => {
+              if (response.ok) {
+                return response.json();
+              }
+              throw new Error('Ошибка при входе');
+            })
             .then((data) => {
               localStorage.setItem('accessToken', data.access);
               localStorage.setItem('refreshToken', data.refresh);

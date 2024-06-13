@@ -26,7 +26,12 @@ export default function Login() {
       },
       body: JSON.stringify(formData)
       })
-      .then(response => response.json())
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error('Ошибка при входе');
+      })
       .then((data) => login(data.access, data.refresh))
       .catch(error => {
         console.error('Ошибка:', error);

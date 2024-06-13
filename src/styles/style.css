@@ -135,6 +135,10 @@ body {
   transition: 0.2s;
 }
 
+.button:disabled {
+  opacity: 0.6;
+}
+
 .button:hover {
   background-color: #FFE665;
 }
@@ -353,7 +357,8 @@ body {
 
 .order__container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 100px;
 }
 
 .order__desc {
@@ -396,6 +401,14 @@ body {
   margin-bottom: 15px;
 }
 
+.order__info_text.date {
+  pointer-events: none;
+}
+
+.order__info_text.date::-webkit-calendar-picker-indicator {
+  pointer-events: all;
+}
+
 .order__info_btn-wrap {
   margin-top: 30px;
   display: flex;
@@ -407,6 +420,7 @@ body {
   font-size: 32px;
   color: #FFD600;
   font-weight: 700;
+  width: 200px;
 }
 
 /* Order - end */

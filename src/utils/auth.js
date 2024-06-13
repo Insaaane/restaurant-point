@@ -1,4 +1,4 @@
-import { URLS } from "../urls.js";
+import { URLS } from './urls.js';
 
 const setTokens = (accessToken, refreshToken) => {
   localStorage.setItem('accessToken', accessToken);

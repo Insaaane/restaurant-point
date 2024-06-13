@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { minDate } from '../../utils/date.js';
+
 import table1 from '../../assets/images/table-1.jpg';
 import table2 from '../../assets/images/table-2.jpg';
 import table3 from '../../assets/images/table-3.jpg';
@@ -29,13 +31,14 @@ export default function TableItem({ table }) {
         <p className="tables__item_label label">дата</p>
         <input 
           type="date" 
+          min={minDate}
           className="tables__item_text input" 
           value={date} 
           onChange={handleDateChange} 
         />
       </div>
 
-      <Link to='/order' state={{ table, date }} className={`tables__item_btn button ${!date ? 'disabled' : ''}`}>Найти свободные места</Link>
+      <Link to='/order' state={{ table, date }} className={`tables__item_btn button ${!date || date < minDate ? 'disabled' : ''}`}>Найти свободные места</Link>
     </div>
   )
 }

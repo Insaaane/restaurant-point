@@ -109,7 +109,7 @@ export default function Profile() {
               <p className="profile__data_label label">номер телефона</p>
               <p className="profile__data_text">{user.phone_number}</p>
 
-              {user.is_staff && <Link to='/admin' className="profile__admin-btn link">панель администратора</Link>}
+              {user.is_staff && <Link to='/admin' state={{ isStaff: user.is_staff }}  className="profile__admin-btn link">панель администратора</Link>}
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { fetchWithAuth } from '../../utils/auth.js'
 import { URLS, MODERATION_TYPE } from '../../utils/urls.js';
@@ -7,6 +8,8 @@ import { sortByDate } from '../../utils/date.js';
 import FullReservationItem from './FullReservationItem.jsx';
 
 export default function Admin() {
+  const { state } = useLocation();
+
   const [moderationType, setModerationType] = useState('');
 
   const [reservations, setReservations] = useState(null);
@@ -208,6 +211,7 @@ export default function Admin() {
                 reservation={reservation}
                 onCancel={handleCancelReservation}
                 onConfirm={handleConfirmReservation}
+                isStaff={state.isStaff}
               />
             ))}
 

@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { STATUS } from '../../utils/urls';
-import { formatDate, minDate } from '../../utils/date.js';
+import { formatDate, minDateTime } from '../../utils/date.js';
 
-export default function FullReservationItem({ reservation, onCancel, onConfirm }) {
+export default function FullReservationItem({ reservation, onCancel, onConfirm, isStaff }) {
   const handleCancel = () => {
     onCancel(reservation.id);
   };
@@ -51,7 +51,8 @@ export default function FullReservationItem({ reservation, onCancel, onConfirm }
         <p className="reservations-item__text end">{reservation.user.phone_number}</p>
       </div>
 
-      {(reservation.status !== 'CANCEL' && reservation.start_datetime > minDate) && (
+      {((reservation.status !== 'CANCEL' && reservation.start_datetime > minDateTime) || 
+        (reservation.status !== 'CANCEL' && isStaff)) && (
         <div className="reservations-item__buttons_wrap">
           {reservation.status === 'VERIFY' && (
             <button className="reservations-item__check-btn" onClick={handleConfirm}>

@@ -6,6 +6,7 @@ const offset = 6 * 60;
 const yekaterinburgTime = new Date(nowUtc.getTime() + offset * 60 * 1000);
 
 export const minDate = yekaterinburgTime.toISOString().split('T')[0];
+export const minDateTime = yekaterinburgTime.toISOString();
 
 export function formatDate(isoString) {
   const date = new Date(isoString);

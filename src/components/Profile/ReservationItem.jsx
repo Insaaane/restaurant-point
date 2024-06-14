@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { STATUS } from '../../utils/urls.js';
-import { formatDate, minDate } from '../../utils/date.js';
+import { formatDate, minDateTime } from '../../utils/date.js';
 
 export default function ReservationItem({ reservation, onDelete }) {
 
@@ -32,7 +32,7 @@ export default function ReservationItem({ reservation, onDelete }) {
         <p className="reservations-item__text">{reservation.occupied_seats}</p>
       </div>
 
-      {(reservation.status !== 'CANCEL' && reservation.start_datetime > minDate) && (
+      {(reservation.status !== 'CANCEL' && reservation.start_datetime > minDateTime) && (
         <div className="reservations-item__delete-btn_wrap">
           <button className="reservations-item__delete-btn" onClick={handleDelete}>
             <svg className="reservations-item__delete-icon" width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../utils/AuthContext.jsx';
 
 import { URLS } from '../../utils/urls';
 
 export default function Reg() {
+  const { login } = useContext(AuthContext);
+
   const [formData, setFormData] = useState({
     name: '',
     surname: '',
@@ -51,11 +54,7 @@ export default function Reg() {
               }
               throw new Error('Ошибка при входе');
             })
-            .then((data) => {
-              localStorage.setItem('accessToken', data.access);
-              localStorage.setItem('refreshToken', data.refresh);
-              navigate('/');
-            });
+            .then((data) => login(data.access, data.refresh));
         }
       })
       .catch(error => {

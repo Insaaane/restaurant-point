@@ -338,8 +338,9 @@ body {
 /* Order - start */
 
 .order {
-  background: url(../assets/images/order-bg.jpg) no-repeat center;
-  background-size: cover;
+  /* background: url(../assets/images/order-bg.jpg) no-repeat center;
+  background-size: cover; */
+  background-color: gray;
   height: 95vh;
 
   display: flex;             
@@ -581,6 +582,18 @@ body {
   white-space: nowrap;
 }
 
+.reservations-item__text.verify {
+  color: #FFD600;
+}
+
+.reservations-item__text.cancel {
+  color: #F00;
+}
+
+.reservations-item__text.paid {
+  color: #00C914;
+}
+
 .reservations-item__text.end {
   margin-bottom: 0;
 }
@@ -677,10 +690,14 @@ body {
 .admin__wrap {
   padding-top: 20px;
   padding-bottom: 35px;
+
+  min-height: 77vh;
 }
 
 .admin__panel {
   text-align: center;
+
+  margin-bottom: 30px;
 }
 
 .admin__title {
@@ -755,6 +772,11 @@ body {
 
 .reservations-item__label {
   white-space: nowrap;
+}
+
+.reservations__no-reservations {
+  text-align: center;
+  font-size: 24px;
 }
 
 /* Admin - end */

@@ -10,15 +10,22 @@ export default function Tables() {
 
   useEffect(() => {
     fetch(URLS.TABLES)
-      .then(response => response.json())
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Ошибка при получении данных о столах');
+        }
+      })
       .then(data => setTables(data))
-      .catch(error => console.error('Ошибка при получении данных о столах:', error));
+      .catch(error => {
+        console.error('Ошибка', error);
+        alert('Ошибка при получении данных о столах');
+      });
   }, []);
 
   if (tables.length === 0) {
-    return (
-      <Loading/>
-    )
+    return <Loading/>;
   }
 
   return (

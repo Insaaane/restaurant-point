@@ -10,13 +10,20 @@ import table3 from '../../assets/images/table-3.jpg';
 export default function TableItem({ table }) {
   const [date, setDate] = useState('');
 
+  let IMG_SRC = table1;
+  if (table.id % 3 === 0) {
+    IMG_SRC = table3;
+  } else if (table.id % 3 === 2) {
+    IMG_SRC = table2;
+  }
+
   const handleDateChange = (event) => {
     setDate(event.target.value);
   };
 
   return (
     <div className="tables__item">
-      <img src={table1} alt="Изображение стола" className="tables__item_img"/>
+      <img src={IMG_SRC} alt="Изображение стола" className="tables__item_img"/>
 
       <div className="tables__item_info">
         <p className="tables__item_label label">название</p>

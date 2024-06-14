@@ -90,6 +90,7 @@ export default function EditProfilePopup({ user, onClose, onProfileUpdate }) {
         if (response.ok) {
           setOldPassword('');
           setNewPassword('');
+          alert('Пароль успешно обновлён');
         } else {
           throw new Error('Ошибка при обновлении пароля');
         }

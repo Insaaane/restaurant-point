@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { fetchWithAuth } from '../../utils/auth.js'
 import { URLS } from '../../utils/urls.js';
+import { sortByDate } from '../../utils/date.js';
 
 import ReservationItem from './ReservationItem.jsx';
 import EditProfilePopup from './EditProfilePopup.jsx';
@@ -12,13 +13,39 @@ import AvatarIcon from '../../assets/images/svg/avatar-icon.svg';
 
 export default function Profile() {
   const [user, setUser] = useState(null);
+  const [reservations, setReservations] = useState([]);
   const [isEditPopupOpen, setIsEditPopupOpen] = useState(false);
 
   useEffect(() => {
     fetchWithAuth(URLS.PROFILE)
-      .then(response => response.json())
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Ошибка при получении данных о пользователе');
+        }
+      })
       .then(data => setUser(data))
-      .catch(error => console.error('Ошибка при получении данных о пользователе:', error));
+      .catch(error => {
+        console.error('Ошибка', error);
+        alert('Ошибка при получении данных о пользователе');
+      });
+  }, []);
+
+  useEffect(() => {
+    fetchWithAuth(URLS.RESERVATIONS)
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Ошибка при получении данных о бронированиях');
+        }
+      })
+      .then(data => setReservations(data))
+      .catch(error => {
+        console.error('Ошибка', error);
+        alert('Ошибка при получении данных о бронированиях');
+      });
   }, []);
 
   const handleOpenEditPopup = () => {
@@ -31,6 +58,24 @@ export default function Profile() {
 
   const handleProfileUpdate = (updatedUser) => {
     setUser(updatedUser);
+  };
+
+  const handleDeleteReservation = (reservationId) => {
+    const URL = `${URLS.RESERVATIONS}${reservationId}/`;
+
+    fetchWithAuth(URL, {
+      method: 'DELETE',
+      })
+      .then(response => {
+        if (response.ok) {
+          setReservations(reservations.map(reservation => 
+            reservation.id === reservationId ? { ...reservation, status: 'CANCEL' } : reservation
+          ));
+        } else {
+          throw new Error('Ошибка при удалении бронирования:', response.statusText);
+        }
+      })
+      .catch(error => console.error('Ошибка', error));
   };
 
   if (!user) {
@@ -73,7 +118,13 @@ export default function Profile() {
           
           <h1 className="profile__reservations_title">Все бронирования</h1>
 
-          <ReservationItem/>
+          {reservations && sortByDate(reservations).map(reservation => (
+            <ReservationItem 
+              key={reservation.id} 
+              reservation={reservation} 
+              onDelete={handleDeleteReservation} 
+            />
+          ))}
           
         </div>
 

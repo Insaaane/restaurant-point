@@ -53,6 +53,7 @@ export default function Login() {
               className="entry__input input"
               value={formData.username}
               onChange={handleChange}
+              required
             />
           </div>
 
@@ -64,6 +65,7 @@ export default function Login() {
               className="entry__input input"
               value={formData.password}
               onChange={handleChange}
+              required
             />
           </div>
 

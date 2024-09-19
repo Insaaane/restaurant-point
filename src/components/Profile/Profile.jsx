@@ -28,7 +28,14 @@ export default function Profile() {
       .then(data => setUser(data))
       .catch(error => {
         console.error('Ошибка', error);
-        alert('Ошибка при получении данных о пользователе');
+        // alert('Ошибка при получении данных о пользователе');
+        setUser({
+          first_name: 'Василий',
+          last_name: 'Пупкин',
+          email: 'vasiliy_pupkin@gmail.com',
+          phone_number: '+7951123456',
+          is_stuff: false
+        })
       });
   }, []);
 
@@ -44,7 +51,31 @@ export default function Profile() {
       .then(data => setReservations(data))
       .catch(error => {
         console.error('Ошибка', error);
-        alert('Ошибка при получении данных о бронированиях');
+        // alert('Ошибка при получении данных о бронированиях');
+        setReservations([{
+          id: 1,
+          table_title: 'VIP-столик',
+          status: 'PAID',
+          start_datetime: new Date() + 0,
+          end_datetime: new Date(),
+          occupied_seats: 1
+        },
+        {
+          id: 2,
+          table_title: 'Столик для двоих',
+          status: 'VERIFY',
+          start_datetime: new Date(),
+          end_datetime: new Date(),
+          occupied_seats: 2
+        },
+        {
+          id: 3,
+          table_title: 'Банкетный стол',
+          status: 'CANCEL',
+          start_datetime: new Date(),
+          end_datetime: new Date(),
+          occupied_seats: 10
+        }])
       });
   }, []);
 

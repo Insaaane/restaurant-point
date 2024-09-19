@@ -58,7 +58,7 @@ export default function Order() {
       .then(data => setTable(data))
       .catch(error => {
         console.error('Ошибка', error);
-        alert('Ошибка при получении данных о столе');
+        // alert('Ошибка при получении данных о столе');
       });
   }, [date]);
 
@@ -166,7 +166,7 @@ export default function Order() {
               
             </select>
 
-            {localStorage.getItem('accessToken') && (
+            {!localStorage.getItem('accessToken') && (
               <>
                 <p className="order__info_label">Период бронирования</p>
                 <div className="order__info_text-wrap">
@@ -200,7 +200,7 @@ export default function Order() {
               </>
             )}
 
-            {localStorage.getItem('accessToken') ? (
+            {!localStorage.getItem('accessToken') ? (
               <div className="order__info_btn-wrap">
                 <button className="order__info_btn button">Забронировать</button>
                 <p className="order__info_sum">{totalCost} руб</p>

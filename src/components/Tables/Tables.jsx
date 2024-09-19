@@ -20,7 +20,13 @@ export default function Tables() {
       .then(data => setTables(data))
       .catch(error => {
         console.error('Ошибка', error);
-        alert('Ошибка при получении данных о столах');
+        alert('Ошибка при получении данных о столах.');
+        setTables([{
+          id: 1,
+          title: 'VIP-столик',
+          description: 'Стол для важных персон',
+          price: 5000
+        }])
       });
   }, []);
 
